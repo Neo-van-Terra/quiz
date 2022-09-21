@@ -1,0 +1,381 @@
+*, *::after, *::before{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway';
+}
+
+:root {
+    --weiß: white;
+    --rot: rgb(221, 9, 9);
+    --grün: rgb(6, 237, 64);
+    --blau: rgb(32, 110, 255);
+    --rosa: rgb(243, 24, 229);
+    --hintergrund: rgba(255, 255, 255, 0.2);
+    --hellgrau: rgb(201, 201, 201);
+    --grau: rgb(150, 150, 150);
+    --border: rgb(240, 240, 240);
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background-image: radial-gradient(circle at 23% 61%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 34% 3%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 10% 76%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 20% 80%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 48% 51%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 69% 29%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 34% 68%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 22% 7%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 15% 88%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 14% 20%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),linear-gradient(135deg, rgb(212, 14, 0),rgb(235, 212, 64));
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--weiß);
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.8),0px 0px 3px rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+    padding: 30px;
+    font-weight: 900;
+}
+
+p {
+    width: 80%;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#szene{
+    margin: 10px auto;
+    width: clamp(400px, 100%, 600px);
+    border-radius: 10px;
+    border: 2px ridge var(--border);
+    backdrop-filter: blur(3px);
+    box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.5);
+    background: var(--hintergrund);
+    overflow: hidden;
+    border-collapse: collapse; 
+}
+
+.startButtonDiv {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 15px;
+}
+
+#buttonStart{
+    color: var(--rot);
+    font-weight: 800;
+    font-size: larger;
+    margin: 20px auto;
+    text-align: center;
+    padding: 5px 20px;
+    border: 2px solid var(--grau);
+    border-radius: 50px;
+    background: var(--weiß);
+    text-shadow: none;
+}
+
+#buttonStart:hover {
+    cursor: pointer;
+    font-weight: 800;
+    color: var(--rot);
+    background: var(--weiß);
+    border: 2px solid var(--rosa);
+    box-shadow: 0px 0px 4px var(--rosa);
+}
+
+#buttonWeiter, .buttonWeiter{
+    color: var(--blau);
+    margin: 5px auto;
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 800;
+    background: white;
+    border: 2px solid var(--grau);
+    text-shadow: none;
+}
+
+#overlay {
+    display: none;
+    width: 100%;
+    justify-items: center;
+}
+
+#hud{
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    border-bottom: 2px ridge var(--border);
+    box-shadow: inset 1px 1px 7px 0px rgba(28, 28, 28, 0.4);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.jokerdiv {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-auto-flow: column;
+    align-content: center;
+    gap: 10px;
+}
+
+.joker {
+    text-align: center;
+    background-image: linear-gradient(20deg, rgb(255, 81, 42),rgb(249, 147, 52),rgb(250, 216, 104));
+    cursor: pointer;
+    padding: 5px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    width: 90px;
+    box-shadow: 1px 1px 1px 0px rgb(0, 0, 0, .5),-1px -1px 1px 0px rgb(255, 255, 255);
+}
+
+.joker:hover {
+    box-shadow: 1px 1px 3px 0px rgb(0, 0, 0, .7),-1px -1px 2px 0px rgb(255, 255, 255);
+}
+
+#timer, #punkte, .jokerdiv {
+    padding: 5px 15px;
+}
+
+#reihenfolge {
+    padding: 15px 15px;
+    font-weight: 800;
+}
+
+#timer {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+#punkte {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.zeitLeiste {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    z-index: -1;
+    animation: time 30s forwards linear, blink 5s 25s linear;
+    background-color: var(--blau);
+    height: 100%;
+}
+
+.pause {
+    animation-play-state: paused;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    5% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    35% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    45% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    55% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes time {
+    0% {
+        width: 100%;
+    }
+    50% {
+        width: 50%;
+    }
+    80% {
+        width: 20%;
+    }
+    90% {
+        width: 10%;
+        animation-timing-function: ease-out;
+        background-color: var(--blau);
+    }
+    100%{
+        width: 0%;
+        background-color: var(--rot);
+    }
+}
+
+
+#fragenFeld{
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    min-height: 100px;
+}
+
+.frage {
+    padding: 30px 15px 20px 15px;
+}
+
+#antwortenFeld{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 15px 15px;
+}
+
+.weiterText {
+    padding: 15px;
+}
+
+.antwort {
+    position: relative;
+    hyphens: auto;
+    padding: 10px;
+    box-shadow: inset 1px 1px 5px 0px rgba(88, 88, 88, 0.6);
+    border: 2px ridge var(--border);
+    border-radius: 20px;
+}
+
+.antwort_hover:hover{
+    cursor: pointer;
+    background: var(--rosa);
+    box-shadow: 0px 0px 5px 1px rgba(253, 232, 184, 0.7);
+    border: 2px ridge var(--border);
+}
+
+.eins_before::before{
+    content: 'A: ';
+}
+.zwei_before::before{
+    content: 'B: ';
+}
+.drei_before::before{
+    content: 'C: ';
+}
+.vier_before::before{
+    content: 'D: ';
+}
+
+
+.gesperrt {
+    background: var(--hellgrau);
+    cursor: default;
+	color: var(--hellgrau);
+    box-shadow: none;
+}
+
+.gesperrt:hover {
+    box-shadow: none;
+}
+
+.korrekt {
+    background: var(--grün);
+    box-shadow: 1px 1px 5px 1px rgba(255, 227, 163, 0.7);
+}
+
+.unkorrekt {
+    background: var(--rot);
+    color: var(--grau);
+}
+
+.seitenWahlDiv {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    font-style: italic;
+    font-size: .85rem;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.seitenWahlInaktiv {
+    color: var(--hellgrau);
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid var(--hellgrau);
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: 5px;
+    background: none;
+}
+
+.seitenWahl {
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: 5px;
+    background: var(--hintergrund);
+}
+
+.ergebnisBlock {
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30px 1fr;
+    padding: 20px;
+    background-image: linear-gradient(180deg, var(--hintergrund),none);
+    border-top: 1px solid rgba(253, 253, 253, 0.5)
+}
+
+hr{
+    margin: 0 0;
+    border: 0;
+    height: 1px;
+    width: 300px;
+    padding: 0 15px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0.7) 30%, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 0) 85%);
+}
